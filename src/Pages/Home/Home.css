@@ -1,0 +1,37 @@
+.slide.active {
+ 
+    transition-duration: 1s;
+    transform: scale(1.08);
+    align-items: center;
+  
+  }
+ 
+  /*--------form-----------*/
+  .slide-form h2 {
+    margin-top: 30px;
+    padding-left: 75px;
+  }
+  .slide-form span {
+    padding-left: 150px;
+  }
+  .slide-form {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 35%;
+    height: 65vh;
+    border-radius: 5px;
+    color: white;
+    margin-left: 320px;
+  }
+  .slide-form input {
+    margin-top: 20px;
+  }
+  .slide-form .flex_space input:nth-child(odd) {
+    margin-right: 20px;
+  }
+  .slide-form .submit {
+    background: #31b675;
+    color: white;
+  }
