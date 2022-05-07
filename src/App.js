@@ -3,8 +3,10 @@ import NavBar from './components/NavBar/NavBar'
 import { Routes, Route } from "react-router-dom";
 import './App.css'
 import Login from './components/Login/Login'
-import Signup from './components/Login/Signup';
 import Home from './Pages/Home/Home';
+import Rooms from './components/Rooms/Rooms'
+import { AuthContextProvider } from './context/UserAuthContext';
+import Register from './components/Login/Register';
 
 
 
@@ -14,14 +16,16 @@ const App = () => {
     <>
     
     <NavBar/>
+    <AuthContextProvider>
        
           <Routes>
               <Route path="/" exact element={<Home/>}/>
               <Route path="/login" exact element={<Login/>}/>
-              <Route path="/signup" exact element={<Signup/>}/>
+              <Route path="/register" exact element={<Register/>}/>
+              <Route path="/rooms" exact element={<Rooms/>}/>
               
             </Routes>
-           
+            </AuthContextProvider>
   
     </>
   )

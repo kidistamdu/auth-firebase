@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import "./Home.css"
 
 const Home = () => {
@@ -13,7 +14,7 @@ const Home = () => {
 
 
                     <form action="">
-                        <input type="text" placeholder="Search City" name="" id=""/>
+                        <input type="text" placeholder="Room Type" name="" id=""/>
                         <div className="flex_space">
                             <input type="date" placeholder="Check In"/>
                             <input type="date" placeholder="Check Out"/>
@@ -23,7 +24,7 @@ const Home = () => {
                          <input type="number" placeholder="Childern(0 -17)"/>
                          </div>
                          <input type="number" placeholder="Rooms"/>
-                         <input type="Submit" value="Search" className="submit"/>
+                         <input type="Submit" value="Search" className="submit"  />
                     </form>
                 </div>
 

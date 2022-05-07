@@ -1,0 +1,87 @@
+.slider {
+  
+    
+   }
+   
+   .slider img {
+     width: 50%;
+     height: 50%;
+     margin-left: 350px;
+     margin-top: 100px;
+     align-items: center;
+     
+     
+   }
+   
+   .control-btn .next {
+     position: absolute;
+     top: 50%;
+     left:70%;
+     z-index: 20;
+     right: 10%;
+     color:white;
+     font-size: 20px;
+     background-color: rgb(77, 112, 77);
+   }
+   
+   
+   .control-btn .prev {
+     position: absolute;
+     top: 50%;
+     margin-left: 270px;
+     z-index: 20;
+     left: 5%;
+     font-size: 20px;
+     color:white;
+     background-color: rgb(77, 112, 77);
+   }
+   
+   .slide {
+     opacity: 0;
+     transition-duration: 1s ease;
+   }
+   
+   .slide.active {
+     opacity: 1;
+     transition-duration: 1s;
+     transform: scale(1.08);
+   }
+   /*--------form-----------*/
+   .slide-form h2 {
+     margin-top: 30px;
+   }
+   .slide-form {
+     position: absolute;
+     top: 30%;
+     left: 10%;
+     background-color: rgba(0, 0, 0, 0.7);
+     width: 35%;
+     height: 65vh;
+     border-radius: 5px;
+     color: white;
+   }
+   .slide-form input {
+     margin-top: 20px;
+   }
+   .slide-form .flex_space input:nth-child(odd) {
+     margin-right: 20px;
+   }
+   .slide-form .submit {
+     background: #31b675;
+     color: white;
+   }
+   /*--------form-----------*/
+ 
+   .room-lists {
+       margin-left: 600px;
+       align-items: center;
+       margin-top: 30px;
+   }
+
+   .room-lists h2 {
+       font-style: oblique;
+   }
+   .room-lists button {
+       margin-left: 40px;
+       margin-top: 10px;
+   }

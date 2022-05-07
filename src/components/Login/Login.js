@@ -1,26 +1,28 @@
 import React  from 'react'
 import {useState} from "react"
-import { signInWithEmailAndPassword } from "firebase/auth";
 import {Link} from 'react-router-dom';
-import "./Design.css"
-import { auth } from '../../firebase-config';
+import {useUserAuth} from "../../context/UserAuthContext"
 
 const Login = () => {
     
-    const [loginEmail, setLoginEmail] = useState("");
-    const [loginPassword, setLoginPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+    const {login} = useUserAuth();
 
-    
-    const login = async () => {
-        try{ 
-            const user = await signInWithEmailAndPassword(
-                auth,
-                loginEmail, 
-                loginPassword);
-            console.log(user)
-        } catch (error) {
-            console.log(error.message);
+    const [allValue, setAllValue] = useState([])
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        error("");
+        try {
+            await login(email, password);
+        }catch (err){
+
         }
+        const newValue = {email,password}
+        setAllValue([...allValue,newValue])
+        setEmail("")   
+        setPassword("")
 
     }
 
@@ -31,9 +33,9 @@ const Login = () => {
             <div className="container">
                 <div className="sign-box">
                     <p>Enter your e-mail and password below to log in to your account and use the benefit of our website</p>
-                    <form >
-                         <input type="email" name="email" placeholder="Email" onChange={(e) => {setLoginEmail(e.target.value);}} />
-                         <input type="password" name="password" placeholder="Password" onChange={(e) => {setLoginPassword(e.target.value);}}/>
+                    <form onSubmit={handleSubmit}>
+                         <input type="email" name="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                         <input type="password" name="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
                     
                     <div className="flex_space">
                         <div className="flex">
@@ -45,7 +47,7 @@ const Login = () => {
                         </div>
                  
                     </div>
-                    <button type="submit" className="primary-btn" onClick={login}> Sign In</button>
+                    <button type="submit" className="primary-btn" > Sign In</button>
                     <div className="new-account">
                    <p>Don't Have An Account? <Link to="/register">Sign Up</Link></p>
                    </div>
