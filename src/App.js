@@ -7,6 +7,8 @@ import Home from './Pages/Home/Home';
 import Rooms from './components/Rooms/Rooms'
 import { AuthContextProvider } from './context/UserAuthContext';
 import Register from './components/Login/Register';
+import BookNow from './Pages/BookNow/BookNow';
+
 
 
 
@@ -23,6 +25,8 @@ const App = () => {
               <Route path="/login" exact element={<Login/>}/>
               <Route path="/register" exact element={<Register/>}/>
               <Route path="/rooms" exact element={<Rooms/>}/>
+              <Route path="/book" exact element={<BookNow/>}/>
+              
               
             </Routes>
             </AuthContextProvider>

@@ -47,7 +47,7 @@ const Login = () => {
                         </div>
                  
                     </div>
-                    <button type="submit" className="primary-btn" > Sign In</button>
+                   <Link to="/rooms">  <button type="submit" className="primary-btn" > Sign In</button> </Link> 
                     <div className="new-account">
                    <p>Don't Have An Account? <Link to="/register">Sign Up</Link></p>
                    </div>

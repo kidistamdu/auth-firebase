@@ -1,13 +1,17 @@
 import React, {useState} from 'react'
 import {FaCaretLeft, FaCaretRight} from "react-icons/fa"
+import { Link } from 'react-router-dom'
 import Data from './Data'
 import './Slide.css'
 
 
 const Slide = ({ slides }) => {
+  
 
     const [current, setCurrent] = useState(0);
     const length = slides.length;
+
+    
 
     const nextSlide = () => {
         setCurrent(current === length - 1 ? 0 : current + 1)
@@ -19,6 +23,8 @@ const Slide = ({ slides }) => {
     if(!Array.isArray(slides) || slides.length <= 0){
         return null 
     }
+
+   
     return (
         <>
             <section className="slider">
@@ -47,7 +53,7 @@ const Slide = ({ slides }) => {
                  <div className="details">
               <h2>Single Bedroom</h2>
                    <span>50$</span>
-             <button className="primary-btn">Book Now</button>
+             <Link to="/book"> <button className="primary-btn"  type="submit" value="book" > Book Now</button> </Link>
           </div>
   
                  </section>

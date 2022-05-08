@@ -2,7 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import "./Home.css"
 
+
 const Home = () => {
+  
     return (
         <>
            
@@ -13,7 +15,7 @@ const Home = () => {
                     <span>Welcome</span>
 
 
-                    <form action="">
+                    <form  >
                         <input type="text" placeholder="Room Type" name="" id=""/>
                         <div className="flex_space">
                             <input type="date" placeholder="Check In"/>
@@ -24,7 +26,7 @@ const Home = () => {
                          <input type="number" placeholder="Childern(0 -17)"/>
                          </div>
                          <input type="number" placeholder="Rooms"/>
-                         <input type="Submit" value="Search" className="submit"  />
+                         <Link to="/room"> <input type="Submit" value="Search" className="submit" /> </Link>
                     </form>
                 </div>
 
