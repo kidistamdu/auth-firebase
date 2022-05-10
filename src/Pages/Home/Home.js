@@ -1,9 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import 'react-date-range/dist/styles.css'; 
+import 'react-date-range/dist/theme/default.css';
+import { Calendar } from 'react-date-range';
 import "./Home.css"
 
 
 const Home = () => {
+    
   
     return (
         <>
