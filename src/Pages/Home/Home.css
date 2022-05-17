@@ -5,8 +5,14 @@
     align-items: center;
   
   }
+
  
   /*--------form-----------*/
+  form .type{
+      align-items: center;
+      margin-left: 140px;
+
+  }
   .slide-form h2 {
     margin-top: 30px;
     padding-left: 75px;

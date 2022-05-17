@@ -83,7 +83,7 @@ const Slide = ({ slides }) => {
                  <div className="details">
               <h2>Double Bedroom</h2>
                    <span>120$</span>
-             <button className="primary-btn">Book Now</button>
+             <button className="primary-btn" id="" >Book Now</button>
           </div>
   
                  </section>
