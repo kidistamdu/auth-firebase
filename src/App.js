@@ -8,6 +8,7 @@ import Rooms from './components/Rooms/Rooms'
 import { AuthContextProvider } from './context/UserAuthContext';
 import Register from './components/Login/Register';
 import BookNow from './Pages/BookNow/BookNow';
+import Admin from './components/Users/Admin';
 
 
 
@@ -26,6 +27,7 @@ const App = () => {
               <Route path="/register" exact element={<Register/>}/>
               <Route path="/rooms" exact element={<Rooms/>}/>
               <Route path="/book" exact element={<BookNow/>}/>
+              <Route path="/admin" exact element={<Admin/>}/>
               
               
             </Routes>

@@ -5,6 +5,13 @@ import {Link} from "react-router-dom"
 const NavBar = () => {
     return (
         <>
+
+        <section className="users">
+              <form>
+                 <Link to="/admin"><button className="btn">Admin </button> </Link> 
+              </form>
+        </section>
+
           <nav className="navbar">
               <div className="container flex_space">
 
