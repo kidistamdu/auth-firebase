@@ -1,13 +1,42 @@
-import React, {useState} from 'react'
-import {FaCaretLeft, FaCaretRight} from "react-icons/fa"
-import { Link } from 'react-router-dom'
-import Data from './Data'
+import React, {useState, useEffect} from 'react'
 import './Slide.css'
+
+import { collection, query, where, getDocs ,doc,getDoc} from "firebase/firestore";
+import {db} from '../../context/firebase-config'
+
+
 
 
 const Slide = ({ slides }) => {
   
+  
+    const [allRooms, setAllRooms] = useState([])
+    
+    
+     const [oneRoom, setOneRoom] = useState([])
 
+     useEffect(() => {
+      //  const q = query(collection(db, "rooms" , "Dr6N9ORu8FnBKgnlkmKU"));
+      const docRef = doc(db, "rooms", "Dr6N9ORu8FnBKgnlkmKU");
+        const getRoom = async() => {
+
+           
+           //     const querySnapshot = await getDocs(q);
+           //   setOneRoom(querySnapshot.docs.map((doc) => doc.data()))
+                
+           const doc = await getDoc(docRef);
+             
+            setOneRoom(doc.data()); 
+         }
+         getRoom();
+     }, [])
+     
+     console.log(allRooms);
+     
+      const bookNow = (value) =>{
+   console.log(value);
+      }
+      
     const [current, setCurrent] = useState(0);
     const length = slides.length;
 
@@ -27,96 +56,37 @@ const Slide = ({ slides }) => {
    
     return (
         <>
-            <section className="slider">
-       <div className="control-btn">
-           <button className="prev" onClick={prevSlide}>
-              <FaCaretLeft/>
-           </button>
-           <button className="next" onClick={nextSlide}>
-              <FaCaretRight/>
-           </button>
-       </div>
+           
 
         
+   <div >
 
-   {Data.map((slide, index) => {
-       return (
-           <div className={index === current ? "slide active" : "slide" } key={index}>
-               {index === current && <img src ={slide.images} alt="room-1"/> }
-               </div>
-       )
-   })}
-    </section>
+    
 
+   <div>  {oneRoom["type"]} </div>
+   <div>{oneRoom["roomNumber"]}</div> 
+   {
+    
+    allRooms.map((slide, index) => (
+       
+       <div key={index}> {slide.roomNumber}
+       <div>  
+            <img src={slide.img}/>
+    </div>
+         <div>{slide.id}</div>
+        <div className="details">{slide.type}
+        </div>
+        <button className="primary-btn" onClick={()=> bookNow(slide.id)}>BookNow</button>
+        </div>
 
-                 <section className="room-lists">
-                 <div className="details">
-              <h2>Single Bedroom</h2>
-                   <span>50$</span>
-             <Link to="/book"> <button className="primary-btn"  type="submit" value="book" > Book Now</button> </Link>
-          </div>
-  
-                 </section>
-            <section className="slider">
-       <div className="control-btn">
-           <button className="prev" onClick={prevSlide}>
-              <FaCaretLeft/>
-           </button>
-           <button className="next" onClick={nextSlide}>
-              <FaCaretRight/>
-           </button>
-       </div>
-
-        
-
-   {Data.map((slide, index) => {
-       return (
-           <div className={index === current ? "slide active" : "slide" } key={index}>
-               {index === current && <img src ={slide.images} alt="room-2"/> }
-               </div>
-       )
-   })}
-    </section>
+     
+    )) }
+   
+</div>
 
 
-                 <section className="room-lists">
-                 <div className="details">
-              <h2>Double Bedroom</h2>
-                   <span>120$</span>
-             <button className="primary-btn" id="" >Book Now</button>
-          </div>
-  
-                 </section>
-            <section className="slider">
-       <div className="control-btn">
-           <button className="prev" onClick={prevSlide}>
-              <FaCaretLeft/>
-           </button>
-           <button className="next" onClick={nextSlide}>
-              <FaCaretRight/>
-           </button>
-       </div>
 
-        
-
-   {Data.map((slide, index) => {
-       return (
-           <div className={index === current ? "slide active" : "slide" } key={index}>
-               {index === current && <img src ={slide.images} alt="room-3"/> }
-               </div>
-       )
-   })}
-    </section>
-
-
-                 <section className="room-lists">
-                 <div className="details">
-              <h2>Family Bedroom</h2>
-                   <span>250$</span>
-             <button className="primary-btn">Book Now</button>
-          </div>
-  
-                 </section>
+   
         </>
     )
 }
